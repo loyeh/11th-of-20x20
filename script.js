@@ -1,5 +1,6 @@
 const main = document.getElementById("main");
 const loader = document.getElementById("loader");
+const innerheight = document.getElementById("innerheight");
 const postFilter = document.getElementById("postFilter");
 let page_numbert = 1;
 let myTimeOut;
@@ -44,11 +45,15 @@ function post_factory(array) {
 // document.onscroll = function () {
 //   console.log(window.innerHeight, window.scrollY, document.body.offsetHeight);
 // };
-window.onscroll = function (ev) {
+
+function handleScrollEnd(ev) {
+  innerheight.innerHTML = `${window.innerHeight}  ${window.scrollY}  =  ${window.innerHeight + window.scrollY} </br> offsetHeight = ${document.body.offsetHeight}`;
   clearTimeout(myTimeOut);
-  console.log(window.innerHeight + window.scrollY, document.body.offsetHeight);
+  console.log(window.innerHeight, " + ", window.scrollY, " = ", window.innerHeight + window.scrollY, document.body.offsetHeight);
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
     loader.classList.add("show");
     post_creator();
   }
-};
+}
+
+window.addEventListener("scroll", handleScrollEnd);
