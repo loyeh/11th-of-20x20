@@ -50,7 +50,7 @@ function handleScrollEnd(ev) {
   innerheight.innerHTML = `${window.innerHeight} + ${Math.floor(window.scrollY)}  =  ${window.innerHeight + Math.floor(window.scrollY)} </br> offsetHeight = ${document.body.offsetHeight}`;
   clearTimeout(myTimeOut);
 
-  if (Math.floor(window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+  if (Math.floor(window.innerHeight + window.scrollY) + 1 >= document.body.offsetHeight) {
     loader.classList.add("show");
     post_creator();
   }
