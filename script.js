@@ -47,7 +47,7 @@ function post_factory(array) {
 // };
 
 function handleScrollEnd(ev) {
-  innerheight.innerHTML = `${window.innerHeight}  ${window.scrollY}  =  ${window.innerHeight + window.scrollY} </br> offsetHeight = ${document.body.offsetHeight}`;
+  innerheight.innerHTML = `${window.innerHeight} + ${Math.floor(window.scrollY)}  =  ${window.innerHeight + window.scrollY} </br> offsetHeight = ${document.body.offsetHeight}`;
   clearTimeout(myTimeOut);
   console.log(window.innerHeight, " + ", window.scrollY, " = ", window.innerHeight + window.scrollY, document.body.offsetHeight);
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
