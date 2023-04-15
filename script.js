@@ -38,6 +38,9 @@ function post_factory(array) {
     text.innerText = object.body;
     post.appendChild(text);
     main.appendChild(post);
+    if (!title.innerText.includes(postFilter.value) && !text.innerText.includes(postFilter.value)) {
+      post.classList.add("hidden");
+    }
   });
   window.addEventListener("scroll", handleScrollEnd);
 }
@@ -49,7 +52,6 @@ function post_factory(array) {
 function handleScrollEnd(ev) {
   // innerheight.innerHTML = `${window.innerHeight} + ${window.visualViewport.pageTop}  =  ${window.innerHeight + window.visualViewport.pageTop} </br> offsetHeight = ${document.body.offsetHeight}`;
   clearTimeout(myTimeOut);
-  postFilter.value = "";
   if (Math.floor(window.innerHeight + window.scrollY) + 1 >= document.body.offsetHeight) {
     window.removeEventListener("scroll", handleScrollEnd);
     loader.classList.add("show");
