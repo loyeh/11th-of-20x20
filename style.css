@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #3e86ca;
+  background-color: #383ab1;
   color: white;
   display: flex;
   flex-direction: column;
@@ -36,10 +36,11 @@ input:focus {
 }
 
 .post {
-  background-color: #ffffff33;
+  background-color: #3794ff;
   padding: 15px 30px;
   position: relative;
   margin-bottom: 30px;
+  box-shadow: 0px 0px 30px #0c0e6980;
 }
 .post::before {
   content: attr(data-number);
