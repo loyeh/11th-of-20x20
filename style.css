@@ -87,4 +87,7 @@ input:focus {
   .main {
     width: 80vw;
   }
+  #loader {
+    bottom: 30px;
+  }
 }
