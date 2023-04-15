@@ -14,7 +14,7 @@ function post_creator() {
   fetch(`https://jsonplaceholder.typicode.com/posts?_limit=5&_page=${page_numbert}`)
     .then((response) => response.json())
     .then((json) => {
-      setTimeout(() => {
+      myTimeOut = setTimeout(() => {
         post_factory(json);
       }, 2000);
     });
@@ -44,6 +44,7 @@ function post_factory(array) {
 //   console.log(window.innerHeight, window.scrollY, document.body.offsetHeight);
 // };
 window.onscroll = function (ev) {
+  clearTimeout(myTimeOut);
   console.log(window.innerHeight + window.scrollY, document.body.offsetHeight);
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
     const loader = document.getElementById("loader");
