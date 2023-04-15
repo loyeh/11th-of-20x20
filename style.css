@@ -82,7 +82,7 @@ input:focus {
   display: block;
 }
 .loader img {
-  width: 100px;
+  height: 30px;
 }
 @media only screen and (max-width: 600px) {
   .main {

@@ -1,4 +1,5 @@
 const main = document.getElementById("main");
+const loader = document.getElementById("loader");
 const postFilter = document.getElementById("postFilter");
 let page_numbert = 1;
 let myTimeOut;
@@ -47,7 +48,6 @@ window.onscroll = function (ev) {
   clearTimeout(myTimeOut);
   console.log(window.innerHeight + window.scrollY, document.body.offsetHeight);
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-    const loader = document.getElementById("loader");
     loader.classList.add("show");
     post_creator();
   }
