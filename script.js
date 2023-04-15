@@ -21,7 +21,6 @@ function post_creator() {
       }, 2000);
     });
 }
-postFilter.addEventListener("input", post_creator);
 
 function post_factory(array) {
   loader.classList.remove("show");
@@ -40,6 +39,7 @@ function post_factory(array) {
     post.appendChild(text);
     main.appendChild(post);
   });
+  window.addEventListener("scroll", handleScrollEnd);
 }
 // let y = 0;
 // document.onscroll = function () {
@@ -51,9 +51,23 @@ function handleScrollEnd(ev) {
   clearTimeout(myTimeOut);
 
   if (Math.floor(window.innerHeight + window.scrollY) + 1 >= document.body.offsetHeight) {
+    window.removeEventListener("scroll", handleScrollEnd);
     loader.classList.add("show");
     post_creator();
   }
 }
 
-window.addEventListener("scroll", handleScrollEnd);
+function searchPosts() {
+  const searchPhrase = postFilter.value;
+  const posts = document.querySelectorAll(".post");
+  posts.forEach((post) => post.classList.remove("hidden"));
+  posts.forEach((post) => {
+    if (!post.childNodes[0].innerText.includes(searchPhrase) && !post.childNodes[1].innerText.includes(searchPhrase)) {
+      post.classList.add("hidden");
+    }
+  });
+  console.log(posts[0].childNodes);
+}
+
+//event listeners
+postFilter.addEventListener("input", searchPosts);
