@@ -1,0 +1,4 @@
+*.mp4
+*.png
+info/*.*
+.DS_Store
